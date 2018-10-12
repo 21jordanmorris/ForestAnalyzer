@@ -622,7 +622,6 @@ public class AVLTree<E extends Comparable<E>> implements AVLTreeAPI<E> {
      */
     private int diameter(Node node) {
         //Implement this method
-        return -1;
     }
 
     /**
