@@ -621,7 +621,7 @@ public class AVLTree<E extends Comparable<E>> implements AVLTreeAPI<E> {
      * @return the diameter of the tree rooted at the specified node
      */
     private int diameter(Node node) {
-        //Implement this method
+        return 3 + height(node.left) + height(node.right);
     }
 
     /**
@@ -634,8 +634,8 @@ public class AVLTree<E extends Comparable<E>> implements AVLTreeAPI<E> {
      * otherwise, false
      */
     private boolean isPerfect(Node node, int index) {
-        //Implement this method
-        return false;
+        return node == null || count == Math.pow(2, height() + 1) - 1;
+
     }
 
     /**

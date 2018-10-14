@@ -177,10 +177,9 @@ public class BSTree<E extends Comparable<E>> implements BSTreeAPI<E> {
      * @return true if this tree is perfect; otherwise, false
      */
     public boolean isPerfect() {
-        if(Math.ceil(Math.log(count + 1) / Math.log(2))
-                == Math.floor(Math.log(count + 1) / Math.log(2)))
-            return isPerfect(root, 0);
-        return false;
+        return (Math.ceil(Math.log(count + 1) / Math.log(2)) ==
+                Math.floor(Math.log(count + 1) / Math.log(2)))
+                && isPerfect(root, 0);
     }
 
     /**
@@ -306,7 +305,6 @@ public class BSTree<E extends Comparable<E>> implements BSTreeAPI<E> {
     private int height(Node node) {
         if(node == null)
             return -1;
-
         return Math.max(height(node.left), height(node.right)) + 1;
     }
 
@@ -339,9 +337,8 @@ public class BSTree<E extends Comparable<E>> implements BSTreeAPI<E> {
      * otherwise, false
      */
     private boolean isPerfect(Node node, int index) {
-        if(node == null)
-            return true;
-        return false;
+        //TODO: FIND A WAY TO IMPLEMENT INDEX PORTION OF METHOD!!
+        return node == null || count == Math.pow(2, height() + 1) - 1;
     }
 
     /**
