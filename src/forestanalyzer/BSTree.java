@@ -337,8 +337,13 @@ public class BSTree<E extends Comparable<E>> implements BSTreeAPI<E> {
      * otherwise, false
      */
     private boolean isPerfect(Node node, int index) {
-        //TODO: FIND A WAY TO IMPLEMENT INDEX PORTION OF METHOD!!
-        return node == null || count == Math.pow(2, height() + 1) - 1;
+        if(node == null)
+            return true;
+        if(node.left == null && node.right == null)
+            return depth(node.data) == height();
+        if(node.left == null || node.right == null)
+            return false;
+        return isPerfect(node.left, 2 * index + 1) && isPerfect(node.right, 2 * index + 2);
     }
 
     /**
